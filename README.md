@@ -12,7 +12,7 @@
 - **Installer** les dépendances `npm` et **lancer** le projet (Voir readme du projet API)
 
 # Partie 1 - Service (30 minutes)
-- Les données utilisées par l'application sont actuellement directement dans un fichier mock: `/src/app/data/posts.mock.ts`, on souhaiterais les récuperer dynamiquement de l'API suivante :
+Les données utilisées par l'application sont actuellement directement dans un fichier mock: `/src/app/data/posts.mock.ts`, on souhaiterais les récuperer dynamiquement de l'API suivante :
 ```js
 // Un simple GET retourne tous les posts
 this.httpClient.get('http://localhost:3001/posts')
@@ -24,15 +24,15 @@ this.httpClient.get('http://localhost:3001/posts')
 -  **Comiter** votre code avec le commentaire `feat(partie 1): Service`.
 
 # Partie 2 - Routing (20 minutes)
-- Sur la page d'un post affichant une blague (ex: `http://localhost:4200/post/2`):
-  1. Une liste de recommandation de blagues s'affiche, le click mets bien à jour le routing, mais ne déclanche pas la mise à jour de la page avec la nouvelle blague choisi dont l'id est dans l'URL.
-  Réparer le fonctionnement attendu : la blague affiché doit correspondre a l'id dans la route (docs : https://angular.io/guide/router#getting-route-information)
-  2. La route pour visualiser un post est actuellement de la forme `/post/:id`, changer se fonctionnement pour utiliser la propriété `slug` à la place de l'ID technique des entités Posts, pour avoir une route ressemblant à `/post/chickenegg` par exemple.
+Sur la page d'un post affichant une blague (ex: `http://localhost:4200/post/2`):
+1. Une liste de recommandation de blagues s'affiche, le click mets bien à jour le routing (URL de la page), mais ne déclanche pas la mise à jour de la page avec la nouvelle blague choisi dont l'id est maintenant dans l'URL. 
+- Réparer le fonctionnement attendu : la blague affiché doit correspondre a l'id dans la route (docs : https://angular.io/guide/router#getting-route-information)
+2. La route pour visualiser un post est actuellement de la forme `/post/:id`, changer se fonctionnement pour utiliser la propriété `slug` à la place de l'ID technique des entités Posts, pour avoir une route ressemblant à `/post/chickenegg` par exemple.
 - **Comiter** votre code avec le commentaire `feat(partie 2): Routing`
 
 # Partie 3 - Pipe (15 minutes)
-- Sur la page d'un post affichant une blague (ex: `http://localhost:4200/post/chickenegg`), une liste de recommandation de blagues s'affiche ainsi que la blague que nous sommes déja en train de visualiser.
-Ecrire un Pipe Angular pour permettre de filtrer la liste des blagues recommender et éviter d'afficher la blague en cours d'affichage. (Docs : https://angular.io/guide/pipes#creating-pipes-for-custom-data-transformations)
+Sur la page d'un post affichant une blague (ex: `http://localhost:4200/post/chickenegg`), une liste de recommandation de blagues s'affiche ainsi que la blague que nous sommes déja en train de visualiser.
+1. Ecrire un Pipe Angular pour permettre de filtrer la liste des blagues recommender et éviter d'afficher la blague en cours d'affichage. (Docs : https://angular.io/guide/pipes#creating-pipes-for-custom-data-transformations)
 - **Comiter** votre code avec le commentaire `feat(partie 3): Pipe`
 
 # Pour finir (1 minute)
