@@ -9,6 +9,7 @@ import { Post } from '../models/post.interface';
   styleUrls: ['./post.component.scss'],
 })
 export class PostComponent implements OnInit {
+  posts: Post[] = postsMock
   post?: Post;
   constructor(private route: ActivatedRoute) {}
 
