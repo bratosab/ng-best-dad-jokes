@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { postsMock } from '../data/posts.mock';
+import { Observable, tap } from 'rxjs';
 import { Post } from '../models/post.interface';
+import { PostsService } from '../providers/posts.service';
 
 @Component({
   selector: 'app-post',
@@ -9,11 +10,21 @@ import { Post } from '../models/post.interface';
   styleUrls: ['./post.component.scss'],
 })
 export class PostComponent implements OnInit {
-  posts: Post[] = postsMock
+  posts$: Observable<Post[]> = new Observable<Post[]>();
+
   post?: Post;
-  constructor(private route: ActivatedRoute) {}
+  constructor(
+    private route: ActivatedRoute,
+    private postsService: PostsService
+  ) {}
 
   ngOnInit(): void {
-    this.post = postsMock.find((post) => post.id === +this.route.snapshot.params['id']);
+    this.posts$ = this.postsService.getPosts().pipe(
+      tap((posts) => {
+        this.post = posts.find(
+          (post) => post.id === +this.route.snapshot.params['id']
+        );
+      })
+    );
   }
 }
